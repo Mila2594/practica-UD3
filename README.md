@@ -6,7 +6,7 @@ Una escuela de formación profesional, requiere de un sistema para la gestión d
 - Gestión de proyectos: cada proyecto cuenta con un título, una descripción, una fecha de inicio y una de límite de entrega. En un mismo proyecto pueden participar uno o más alumnos, como también la comisión evaluadora puede ser de uno o más profesores
 - Gestión de alumnos: los alumnos estan registrados por su nombre, apellido, email, curso, especialidad y el DNI. Un Alumno tiene multiples proyectos a lo largo de sus estudios.
 - Gestión de profesores:los profesores estan registrados por su nombre, apellido, email, año de incorporación y la especialidad. Un profesor puede supervisar multiples proyecto como Tutor principal o Co-tutor.
-- - Supervision: Se define la relación entre estudiante, profesor y proyecto, para especificar quien supervisa cada proyecto. Esta relación incluye el rol del profesor que puede ser Tutor principal o co-tutor y fecha de asignación.
+- Supervision: Se define la relación entre estudiante, profesor y proyecto, para especificar quien supervisa cada proyecto. Esta relación incluye el rol del profesor que puede ser Tutor principal o co-tutor y fecha de asignación.
 - Evaluación: Cada proyecto es evaluado por uno o más profesores. Donde se registra la calificación numérica del 0 al 10, fecha de evaluación, proyecto, profesor y comentarios si fuese necesario, de cada evaluador.
 - Calificación final: Cada proyecto tendrá una calificación final, que es el promedio calculado en base a las notas asignadas por la comisión evaluadora.
 - Tipo de proyecto: os proyectos estarán categorizados en tipos predefinidos como tesis, informes técnicos, proyectos finales de curso (PFC), seminarios, entre otros.
