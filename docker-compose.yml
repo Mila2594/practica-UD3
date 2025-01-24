@@ -1,0 +1,42 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    volumes:
+      - ./EduPro:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_CONNECTION=mariadb
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=gestion_proyectos_academicos
+      - DB_USERNAME=root
+      - DB_PASSWORD=m1_s3cr3t
+    command: 
+      sh -c "composer install &&
+        php artisan key:generate &&
+        php artisan config:clear &&
+        php artisan migrate:refresh --seed &&
+        php artisan serve --host=0.0.0.0 --port=8000"
+
+  db:
+    build:
+      context: .
+      dockerfile: ./db_config/Dockerfile
+    container_name: mariadb-server
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: m1_s3cr3t
+      MYSQL_DATABASE: gestion_proyectos_academicos
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
