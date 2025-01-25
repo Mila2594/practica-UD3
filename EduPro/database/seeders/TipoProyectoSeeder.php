@@ -13,6 +13,6 @@ class TipoProyectoSeeder extends Seeder
      */
     public function run(): void
     {
-        TipoProyecto::factory(10)->create();
+        TipoProyecto::factory(9)->create();
     }
 }

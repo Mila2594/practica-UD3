@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tipos_proyectos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',30)->unique();
+            $table->string('nombre',50)->unique();
             $table->string('descripcion')->nullable();
             $table->timestamps();
         });

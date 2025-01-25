@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->string('comentario')->nullable();
             $table->decimal('calificacion',4,2);
-            $table->foreignId('profesor_id')->contrained('profesores')->onDelete('restrict');
+            $table->foreignId('profesor_id')->contrained('profesores')->onDelete('cascade');
             $table->foreignId('proyecto_id')->constrained('proyectos')->onDelete('cascade');
             $table->timestamps();
         });

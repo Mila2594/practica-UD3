@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('calificaciones_finales', function (Blueprint $table) {
             $table->id();
             $table->date('fecha_cierre');
-            $table->string('comentario');
+            $table->string('comentario')->nullable();
             $table->foreignId('proyecto_id')->constrained('proyectos')->onDelete('cascade');
             $table->enum('estado',['suspenso','aprobado','en revision']);
-            $table->decimal('promedio',4,2);
+            $table->decimal('promedio',4,2)->nullable();
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@ class CalificacionFinal extends Model
 {
     use HasFactory;
 
-    protected $table = ['calificaciones_finales'];
+    protected $table = 'calificaciones_finales';
 
     protected $fillable= ['fecha_cierre',
     'comentario',
@@ -21,6 +21,11 @@ class CalificacionFinal extends Model
     public function proyecto()
     {
         return $this->belongsTo(Proyecto::class,'proyecto_id');
+    }
+
+    public function evaluaciones()
+    {
+        return $this->proyecto->evaluaciones();  // Accede a evaluaciones a través del proyecto
     }
 
     /**

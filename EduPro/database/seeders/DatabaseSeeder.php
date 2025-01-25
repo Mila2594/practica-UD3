@@ -24,14 +24,14 @@ class DatabaseSeeder extends Seeder
 
         // Llamar a los seeders individuales
         $this->call([
-            AlumnoSeeder::class,
-            CalificacionFinalSeeder::class,
             EspecialidadSeeder::class,
-            EvaluacionSeeder::class,
-            ProfesorSeeder::class,
-            ProyectoSeeder::class,
+            AlumnoSeeder::class,
             TipoProyectoSeeder::class,
+            ProyectoSeeder::class,
+            ProfesorSeeder::class,
             SupervisionSeeder::class,
+            EvaluacionSeeder::class,
+            CalificacionFinalSeeder::class,
         ]);
     }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->foreignId('tipo_proyecto_id')
             ->nullable()
             ->constrained('tipos_proyectos')

@@ -32,10 +32,10 @@ class ProfesorSeeder extends Seeder
 
         for($i = 0; $i < 10; $i++){
             Profesor::create([
-                'nombre'=>faker->firstName,
-                'apellido'=>faker->lastName,
-                'email'=>faker->unique()->safeEmail,
-                'dni'=>faker->unique()->lexify('########?'),
+                'nombre'=>$faker->firstName,
+                'apellido'=>$faker->lastName,
+                'email'=>$faker->unique()->safeEmail,
+                'dni'=>$faker->unique()->lexify('########?'),
                 'especialidad'=>$faker->randomElement($profesiones)
             ]);
         }

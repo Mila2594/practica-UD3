@@ -18,10 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('curso');
             $table->string('dni',9)->unique();
-            $table->foreignId('especialidad_id')
-            ->nullable()
-            ->constrained('especialidades')
-            ->onDelete('set null');
+            $table->foreignId('especialidad_id')->nullable()->constrained('especialidades')->onDelete('set null');
             $table->timestamps();
         });
     }
