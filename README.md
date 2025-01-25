@@ -78,9 +78,9 @@ Desde el directorio raiz, ejecuta:
 ```bash
 docker-compose up --build
 ```
-Esto construida la imagen y comunicación de servicios entre Laravel y MariaDB, la aplicación estará lista para trabajar.
+Esto construye la imagen y comunicación de servicios entre Laravel y MariaDB, la aplicación estará lista para trabajar.
 
-**4. Ingresar a MariaDB**: Puedes trabajar directamente con la base de datos desde dentro de su contenedor, es posible hacer consulta, nuevos registros, actualizaciones y más. 
+**4. Ingresar a MariaDB**: Puedes trabajar directamente con la base de datos desde dentro de su contenedor, es posible hacer consultas, nuevos registros, actualizaciones y más. 
 
 Para ingresar al contenedor y utilizar la base de datos del proyecto: 
 ```bash
