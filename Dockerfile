@@ -1,27 +1,35 @@
-# Usar la imagen oficial de PHP 8.3 CLI
+# Usamos la imagen oficial de PHP CLI
 FROM php:8.2-cli
 
-# Instalar extensiones requeridas
+# Instalamos dependencias necesarias para Laravel (dependencias de PHP y herramientas)
 RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    unzip \
-    && docker-php-ext-install pdo pdo_mysql zip \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    zip \
+    git \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo pdo_mysql
 
-# Instalar Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Instalamos Composer globalmente
+RUN curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer
 
-# Configurar directorio de trabajo
+# Establecemos el directorio de trabajo
 WORKDIR /app
 
-# Copiar los archivos del proyecto
-COPY EduPro/ .
+# Copiamos todo el contenido de EduPro al contenedor
+COPY EduPro/ /app/
 
-# Instalar dependencias de Composer
-RUN composer install --no-dev --optimize-autoloader
+# Instalamos las dependencias de Composer
+RUN composer install --no-interaction --no-dev --prefer-dist
 
-# Exponer el puerto 8000 para el servidor embebido de PHP
+# Configuramos permisos para las carpetas de almacenamiento y caché
+RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
+RUN chmod -R 775 /app/storage /app/bootstrap/cache
+
+# Exponemos el puerto para la comunicación con Laravel (por si lo necesitas)
 EXPOSE 8000
 
-# Establecer permisos adecuados
-RUN chown -R www-data:www-data /var/www/html
+# Definimos el comando por defecto (en este caso, ejecutamos el servidor PHP para Laravel)
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]

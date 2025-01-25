@@ -1,0 +1,10 @@
+# Usamos la imagen oficial de MariaDB
+FROM mariadb:10.5
+
+# Configuramos las variables de entorno para la base de datos
+ENV MYSQL_ROOT_PASSWORD=m1_s3cr3t
+ENV MYSQL_DATABASE=gestion_proyectos_academicos
+
+# Exponemos el puerto 3306 para que MariaDB esté disponible
+EXPOSE 3306
+
