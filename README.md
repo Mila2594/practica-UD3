@@ -1,4 +1,4 @@
-# practica2-UD3-AD
+# Practica-UD3
 
 ## Descripción proyecto
 Aplicación backend desarrollada en Laravel con base de datos MariaDB, es un sistema de gestion de proyectos académicos. Está dockerizado para facilitar su configuración y ejecución en un entorno aislado y consistente, no cuenta con una interfaz web, ya que se basa únicamente en la comunicación mediante peticiones API.
