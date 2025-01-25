@@ -24,7 +24,7 @@ class AlumnoSeeder extends Seeder
                 'apellido'=>$faker->lastName,
                 'email'=>$faker->unique()->safeEmail,
                 'curso'=>$faker->randomElement(['1º','2º','3º','4º','5º','6º','7º','8º','9º','10º']),
-                'dni'=>$faker->unique()->lexify('########?'),
+                'dni'=>$faker->unique()->regexify('[0-9]{7}[A-Z]{1}'),
                 'especialidad_id'=>Especialidad::inRandomOrder()->first()->id, 
             ]);
 

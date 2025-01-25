@@ -35,7 +35,7 @@ class ProfesorSeeder extends Seeder
                 'nombre'=>$faker->firstName,
                 'apellido'=>$faker->lastName,
                 'email'=>$faker->unique()->safeEmail,
-                'dni'=>$faker->unique()->lexify('########?'),
+                'dni'=>$faker->unique()->regexify('[0-9]{7}[A-Z]{1}'),
                 'especialidad'=>$faker->randomElement($profesiones)
             ]);
         }

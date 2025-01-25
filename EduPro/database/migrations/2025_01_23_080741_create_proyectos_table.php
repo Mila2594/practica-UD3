@@ -30,6 +30,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('proyectos');
+        Schema::dropIfExists('supervisiones'); // Primero elimina las tablas dependientes
+        Schema::dropIfExists('evaluaciones'); // Luego elimina evaluaciones
+        Schema::dropIfExists('calificaciones_finales'); // Luego elimina calificaciones_finales
+        Schema::dropIfExists('proyectos');    // Finalmente, elimina proyectos
     }
+
 };

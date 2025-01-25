@@ -30,7 +30,7 @@ class SupervisionSeeder extends Seeder
             // Crea supervisiones aleatorias
             foreach (range(1, 10) as $index) {
                 Supervision::create([
-                    'fecha_asig' => $faker->date(),
+                    'fecha_asig' => $faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d'),
                     'rol' => $faker->randomElement(['tutor', 'cotutor']),
                     'alumno_id' => $alumnos->random()->id, // Selecciona un alumno aleatorio
                     'proyecto_id' => $proyectos->random()->id, // Selecciona un proyecto aleatorio
